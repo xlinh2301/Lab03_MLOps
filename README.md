@@ -215,5 +215,5 @@ docker-compose down
 
 7. ## Video demo:
 
-[Link Video]([https://drive.google.com/file/d/1YCmn9TK6C8lRWEhOqIlUwcSmNjEeWSsF/view])
+[Link Video](https://drive.google.com/file/d/1YCmn9TK6C8lRWEhOqIlUwcSmNjEeWSsF/view)
 
