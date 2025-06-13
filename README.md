@@ -146,7 +146,7 @@ Thiết lập `docker-compose` bao gồm một ngăn xếp giám sát đầy đ�
 4.  **Alertmanager:**
     *   Truy cập giao diện Alertmanager tại `http://localhost:9093`.
 
-### Mô phỏng Lưu lượng
+### Chạy script giả lập traffic request 
 
 Để mô phỏng lưu lượng đến API, bạn có thể chạy một script gửi nhiều yêu cầu. Dưới đây là một ví dụ sử dụng thư viện `requests` của Python.
 
