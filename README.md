@@ -5,7 +5,7 @@
   </a>
 </p>
 
-<h1 align="center"><b>Information Retrieval</b></h1>
+<h1 align="center"><b>MLops</b></h1>
 
 <div align="center">
   <table>
@@ -46,17 +46,17 @@
   </table>
 </div>
 
-# COURSE INTRODUCTION
-* **Course Name:** MLOps - Phát triển và vận hành hệ thống máy học.
-* **Class Code:** CS317.P21.
-* **Academic Year:** HK2 (2024 - 2025).
-* **Lecturer**: Th.S Đỗ Văn Tiến, Lê Trần Trọng Khiêm
+# GIỚI THIỆU KHÓA HỌC
+* **Tên Khóa Học:** MLOps - Phát triển và vận hành hệ thống máy học.
+* **Mã Lớp:** CS317.P21.
+* **Năm Học:** HK2 (2024 - 2025).
+* **Giảng Viên**: Th.S Đỗ Văn Tiến, Lê Trần Trọng Khiêm
 
-# Lab 2: Model Serving and Monitoring
+# Bài Lab 2: Phục vụ Mô hình và Giám sát
 
-This project sets up a machine learning model serving API with monitoring using Prometheus and Grafana.
+Dự án này thiết lập một API phục vụ mô hình học máy với giám sát sử dụng Prometheus và Grafana.
 
-## Project Structure
+## Cấu trúc Dự án
 
 ```
 cs317-lab2/
@@ -75,87 +75,87 @@ cs317-lab2/
     └── model.pth
 ```
 
-## Setup
+## Thiết lập
 
-### Prerequisites
+### Yêu cầu
 
 *   Docker
 *   Docker Compose
 
-## Download and Install Prometheus and Promtool
+## Tải xuống và Cài đặt Prometheus và Promtool
 
-Since the `prometheus` and `promtool` binaries are large, they are not included in the repository. You can download them separately using the following steps:
+Vì các tệp nhị phân `prometheus` và `promtool` có kích thước lớn, chúng không được bao gồm trong kho lưu trữ. Bạn có thể tải chúng xuống riêng bằng các bước sau:
 
-1. **Download Prometheus:**
-   - Visit the [Prometheus download page](https://prometheus.io/download/).
-   - Download the appropriate version for your operating system.
-   - Extract the downloaded archive and copy the `prometheus` binary to `monitoring/prometheus-3.4.1.linux-amd64/`.
+1. **Tải xuống Prometheus:**
+   - Truy cập [trang tải xuống Prometheus](https://prometheus.io/download/).
+   - Tải xuống phiên bản phù hợp với hệ điều hành của bạn.
+   - Giải nén tệp đã tải xuống và sao chép tệp nhị phân `prometheus` vào `monitoring/prometheus-3.4.1.linux-amd64/`.
 
-2. **Download Promtool:**
-   - The `promtool` binary is included in the same archive as Prometheus.
-   - Copy the `promtool` binary to `monitoring/prometheus-3.4.1.linux-amd64/`.
+2. **Tải xuống Promtool:**
+   - Tệp nhị phân `promtool` được bao gồm trong cùng một tệp nén với Prometheus.
+   - Sao chép tệp nhị phân `promtool` vào `monitoring/prometheus-3.4.1.linux-amd64/`.
 
-Ensure both binaries are executable and located in the correct directory before starting the services.
+Đảm bảo cả hai tệp nhị phân đều có thể thực thi và nằm trong thư mục đúng trước khi khởi động các dịch vụ.
 
-### Installation
+### Cài đặt
 
-1.  **Clone the repository:**
+1.  **Clone kho lưu trữ:**
     ```bash
     git clone <repository-url>
     cd cs317-lab2
     ```
 
-2.  **Build and run the services:**
+2.  **Xây dựng và chạy các dịch vụ:**
     ```bash
     docker-compose up -d --build
     ```
-    This command will build the Docker image for the FastAPI service and start all the services defined in `docker-compose.yml` in detached mode. The services include:
-    *   **fastapi:** The model serving API.
-    *   **prometheus:** The metrics collection server.
-    *   **grafana:** The monitoring dashboard.
-    *   **loki:** The log aggregation system.
-    *   **promtail:** The log collector for Loki.
-    *   **alertmanager:** Handles alerts from Prometheus.
+    Lệnh này sẽ xây dựng hình ảnh Docker cho dịch vụ FastAPI và khởi động tất cả các dịch vụ được định nghĩa trong `docker-compose.yml` ở chế độ nền. Các dịch vụ bao gồm:
+    *   **fastapi:** API phục vụ mô hình.
+    *   **prometheus:** Máy chủ thu thập số liệu.
+    *   **grafana:** Bảng điều khiển giám sát.
+    *   **loki:** Hệ thống tổng hợp log.
+    *   **promtail:** Bộ thu thập log cho Loki.
+    *   **alertmanager:** Xử lý cảnh báo từ Prometheus.
 
-## Usage
+## Sử dụng
 
-### API Endpoints
+### Các Điểm cuối API
 
-*   **API Documentation:** `http://localhost:8000/docs`
-*   **Prediction Endpoint:** `http://localhost:8000/predict/` (POST request)
+*   **Tài liệu API:** `http://localhost:8000/docs`
+*   **Điểm cuối Dự đoán:** `http://localhost:8000/predict/` (yêu cầu POST)
 
-You can use a tool like `curl` or Postman to send a POST request with an image file to the prediction endpoint.
+Bạn có thể sử dụng công cụ như `curl` hoặc Postman để gửi yêu cầu POST với tệp hình ảnh đến điểm cuối dự đoán.
 
-### Monitoring Dashboard
+### Bảng điều khiển Giám sát
 
-The `docker-compose` setup includes a full monitoring stack.
+Thiết lập `docker-compose` bao gồm một ngăn xếp giám sát đầy đủ.
 
 1.  **Grafana:**
-    *   Access the Grafana dashboard at `http://localhost:3000`.
-    *   Login with the default credentials:
-        *   **Username:** admin
-        *   **Password:** admin
+    *   Truy cập bảng điều khiển Grafana tại `http://localhost:3000`.
+    *   Đăng nhập với thông tin mặc định:
+        *   **Tên người dùng:** admin
+        *   **Mật khẩu:** admin
 
 2.  **Prometheus:**
-    *   Access the Prometheus UI at `http://localhost:9090`.
-    *   You can view the collected metrics and alerts.
+    *   Truy cập giao diện Prometheus tại `http://localhost:9090`.
+    *   Bạn có thể xem các số liệu và cảnh báo đã thu thập.
 
 3.  **Loki:**
-    *   Access the Loki log aggregation system at `http://localhost:3100`. You can query logs from the `fastapi` service here, and it is pre-configured as a data source in Grafana.
+    *   Truy cập hệ thống tổng hợp log Loki tại `http://localhost:3100`. Bạn có thể truy vấn log từ dịch vụ `fastapi` tại đây, và nó đã được cấu hình sẵn làm nguồn dữ liệu trong Grafana.
 
 4.  **Alertmanager:**
-    *   Access the Alertmanager UI at `http://localhost:9093`.
+    *   Truy cập giao diện Alertmanager tại `http://localhost:9093`.
 
-### Traffic Simulation
+### Mô phỏng Lưu lượng
 
-To simulate traffic to the API, you can run a script that sends multiple requests. Here is an example using Python's `requests` library.
+Để mô phỏng lưu lượng đến API, bạn có thể chạy một script gửi nhiều yêu cầu. Dưới đây là một ví dụ sử dụng thư viện `requests` của Python.
 
-First, install the required library:
+Đầu tiên, cài đặt thư viện cần thiết:
 ```bash
 pip install requests
 ```
 
-Then, create a Python script `traffic_simulation.py` with the following content:
+Sau đó, tạo một script Python `traffic_simulation.py` với nội dung sau:
 ```python
 import requests
 import time
@@ -171,44 +171,44 @@ def send_request(image_path):
             files = {"file": (os.path.basename(image_path), f, "image/jpeg")}
             response = requests.post(API_URL, files=files)
             if response.status_code == 200:
-                print(f"Successfully predicted {os.path.basename(image_path)}: {response.json()}")
+                print(f"Dự đoán thành công {os.path.basename(image_path)}: {response.json()}")
             else:
-                print(f"Error predicting {os.path.basename(image_path)}: {response.status_code} {response.text}")
+                print(f"Lỗi khi dự đoán {os.path.basename(image_path)}: {response.status_code} {response.text}")
     except Exception as e:
-        print(f"An error occurred with {os.path.basename(image_path)}: {e}")
+        print(f"Đã xảy ra lỗi với {os.path.basename(image_path)}: {e}")
 
 if __name__ == "__main__":
     image_files = []
     if os.path.isdir(IMAGE_PATH_OR_DIR):
-        print(f"Searching for images in directory: {IMAGE_PATH_OR_DIR}")
+        print(f"Tìm kiếm hình ảnh trong thư mục: {IMAGE_PATH_OR_DIR}")
         image_files = [os.path.join(IMAGE_PATH_OR_DIR, f) for f in os.listdir(IMAGE_PATH_OR_DIR) if f.lower().endswith(('png', 'jpg', 'jpeg'))]
         if not image_files:
-            print(f"No images found in '{IMAGE_PATH_OR_DIR}'.")
+            print(f"Không tìm thấy hình ảnh trong '{IMAGE_PATH_OR_DIR}'.")
     elif os.path.isfile(IMAGE_PATH_OR_DIR):
-        print(f"Using single image: {IMAGE_PATH_OR_DIR}")
+        print(f"Sử dụng hình ảnh đơn: {IMAGE_PATH_OR_DIR}")
         image_files = [IMAGE_PATH_OR_DIR]
     else:
-        print(f"Path '{IMAGE_PATH_OR_DIR}' is not a valid file or directory.")
+        print(f"Đường dẫn '{IMAGE_PATH_OR_DIR}' không phải là tệp hoặc thư mục hợp lệ.")
 
     if image_files:
-        print(f"Found {len(image_files)} image(s) to send.")
+        print(f"Tìm thấy {len(image_files)} hình ảnh để gửi.")
         while True:
             image_path = random.choice(image_files)
             send_request(image_path)
             time.sleep(random.uniform(0.5, 2.0))
     else:
-        print("No images to process. Exiting.") 
+        print("Không có hình ảnh để xử lý. Thoát.") 
 ```
-**Note:** Make sure to replace `"path/to/your/images"` with the actual path to a directory containing images you want to use for testing.
+**Lưu ý:** Hãy chắc chắn thay thế "path/to/your/images" bằng đường dẫn thực tế đến thư mục chứa hình ảnh bạn muốn sử dụng để kiểm tra.
 
-Run the script:
+Chạy script:
 ```bash
 python traffic_simulation.py
 ```
 
-## Stopping the services
+## Dừng các dịch vụ
 
-To stop all running services, use the following command:
+Để dừng tất cả các dịch vụ đang chạy, sử dụng lệnh sau:
 ```bash
 docker-compose down
 ```
