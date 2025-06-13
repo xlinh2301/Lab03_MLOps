@@ -98,8 +98,6 @@ venv.bak/
 # Prometheus data
 monitoring/prometheus-3.4.1.linux-amd64/data/ 
 
-monitoring/grafana-docker-compose.yml
-
 # Large binaries
 monitoring/prometheus-3.4.1.linux-amd64/prometheus
 monitoring/prometheus-3.4.1.linux-amd64/promtool

@@ -60,7 +60,6 @@ Dự án này thiết lập một API phục vụ mô hình học máy với gi�
 
 ```
 cs317-lab2/
-├── docker-compose.yml
 ├── monitoring/
 │   ├── alertmanager.yml
 │   ├── grafana-docker-compose.yml
