@@ -101,7 +101,7 @@ Vì các tệp nhị phân `prometheus` và `promtool` có kích thước lớn,
 1.  **Clone kho lưu trữ:**
     ```bash
     git clone https://github.com/xlinh2301/Lab03_MLOps.git
-    cd cs317-lab2
+    cd Lab03_MLOps
     ```
 
 2.  **Xây dựng và chạy các dịch vụ:**
