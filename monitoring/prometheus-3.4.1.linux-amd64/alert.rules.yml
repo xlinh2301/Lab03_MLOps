@@ -1,0 +1,21 @@
+groups:
+- name: ml_alerts
+  rules:
+  - alert: HighErrorRate
+    expr: sum(rate(model_errors_total[1m])) / sum(rate(model_requests_total[1m])) > 0.5
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Error rate cao"
+      description: "Error rate vượt quá 50% trong 2 phút"
+
+  - alert: LowConfidenceScore
+    expr: min_over_time(model_confidence_score[5m]) < 0.8
+    for: 5s
+    labels:
+      severity: warning
+    annotations:
+      summary: "Confidence score thấp"
+      description: "Có dự đoán với confidence score < 0.8 trong 5 phút"
+  

@@ -1,0 +1,21 @@
+global:
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'nickclonemail1@gmail.com'
+  smtp_auth_username: 'nickclonemail1@gmail.com'
+  smtp_auth_password: 'wsgj hmze dnzx jmqo'
+route:
+  receiver: 'email-notifications'
+  routes:
+    - receiver: 'retrain-webhook'
+      match:
+        alertname: LowConfidenceScore
+
+receivers:
+  - name: 'email-notifications'
+    email_configs:
+      - to: 'supperkklot2001@gmail.com'
+        send_resolved: true
+  - name: 'retrain-webhook'
+    webhook_configs:
+    - url: 'http://localhost:8080/retrain'
+      send_resolved: false

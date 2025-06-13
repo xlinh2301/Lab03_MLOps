@@ -1,0 +1,38 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: syslog
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: syslog
+          __path__: /var/log/syslog
+
+  - job_name: stdout
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: app_stdout
+          __path__: /app/app_stdout.log
+
+  - job_name: stderr
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: app_stderr
+          __path__: /app/app_stderr.log
+
+  - job_name: app_logfile
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: app_logfile
+          __path__: /app/app.log
