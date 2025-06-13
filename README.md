@@ -162,11 +162,6 @@ python traffic_simulation.py
 ```
 **Lưu ý:** Hãy chắc chắn thay thế "path/to/your/images" bằng đường dẫn thực tế đến thư mục chứa hình ảnh bạn muốn sử dụng để kiểm tra.
 
-Chạy script:
-```bash
-python traffic_simulation.py
-```
-
 ## Dừng các dịch vụ
 
 Để dừng tất cả các dịch vụ đang chạy, sử dụng lệnh sau:
