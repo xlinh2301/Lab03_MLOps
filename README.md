@@ -155,49 +155,10 @@ Thiết lập `docker-compose` bao gồm một ngăn xếp giám sát đầy đ�
 pip install requests
 ```
 
-Sau đó, tạo một script Python `traffic_simulation.py` với nội dung sau:
+Sau đó, chạy file `traffic_simulation.py`:
 ```python
-import requests
-import time
-import os
-import random
-
-IMAGE_PATH_OR_DIR = "path/to/your/images"
-API_URL = "http://localhost:8000/predict/"
-
-def send_request(image_path):
-    try:
-        with open(image_path, "rb") as f:
-            files = {"file": (os.path.basename(image_path), f, "image/jpeg")}
-            response = requests.post(API_URL, files=files)
-            if response.status_code == 200:
-                print(f"Dự đoán thành công {os.path.basename(image_path)}: {response.json()}")
-            else:
-                print(f"Lỗi khi dự đoán {os.path.basename(image_path)}: {response.status_code} {response.text}")
-    except Exception as e:
-        print(f"Đã xảy ra lỗi với {os.path.basename(image_path)}: {e}")
-
-if __name__ == "__main__":
-    image_files = []
-    if os.path.isdir(IMAGE_PATH_OR_DIR):
-        print(f"Tìm kiếm hình ảnh trong thư mục: {IMAGE_PATH_OR_DIR}")
-        image_files = [os.path.join(IMAGE_PATH_OR_DIR, f) for f in os.listdir(IMAGE_PATH_OR_DIR) if f.lower().endswith(('png', 'jpg', 'jpeg'))]
-        if not image_files:
-            print(f"Không tìm thấy hình ảnh trong '{IMAGE_PATH_OR_DIR}'.")
-    elif os.path.isfile(IMAGE_PATH_OR_DIR):
-        print(f"Sử dụng hình ảnh đơn: {IMAGE_PATH_OR_DIR}")
-        image_files = [IMAGE_PATH_OR_DIR]
-    else:
-        print(f"Đường dẫn '{IMAGE_PATH_OR_DIR}' không phải là tệp hoặc thư mục hợp lệ.")
-
-    if image_files:
-        print(f"Tìm thấy {len(image_files)} hình ảnh để gửi.")
-        while True:
-            image_path = random.choice(image_files)
-            send_request(image_path)
-            time.sleep(random.uniform(0.5, 2.0))
-    else:
-        print("Không có hình ảnh để xử lý. Thoát.") 
+cd monitoring
+python traffic_simulation.py
 ```
 **Lưu ý:** Hãy chắc chắn thay thế "path/to/your/images" bằng đường dẫn thực tế đến thư mục chứa hình ảnh bạn muốn sử dụng để kiểm tra.
 
