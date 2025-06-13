@@ -82,6 +82,21 @@ cs317-lab2/
 *   Docker
 *   Docker Compose
 
+## Download and Install Prometheus and Promtool
+
+Since the `prometheus` and `promtool` binaries are large, they are not included in the repository. You can download them separately using the following steps:
+
+1. **Download Prometheus:**
+   - Visit the [Prometheus download page](https://prometheus.io/download/).
+   - Download the appropriate version for your operating system.
+   - Extract the downloaded archive and copy the `prometheus` binary to `monitoring/prometheus-3.4.1.linux-amd64/`.
+
+2. **Download Promtool:**
+   - The `promtool` binary is included in the same archive as Prometheus.
+   - Copy the `promtool` binary to `monitoring/prometheus-3.4.1.linux-amd64/`.
+
+Ensure both binaries are executable and located in the correct directory before starting the services.
+
 ### Installation
 
 1.  **Clone the repository:**
@@ -202,17 +217,3 @@ docker-compose down
 
 [Link Video](https://drive.google.com/file/d/1DJ9JjSqxwKapUK1miyIhpDYmi2py5kIC/view)
 
-## Download and Install Prometheus and Promtool
-
-Since the `prometheus` and `promtool` binaries are large, they are not included in the repository. You can download them separately using the following steps:
-
-1. **Download Prometheus:**
-   - Visit the [Prometheus download page](https://prometheus.io/download/).
-   - Download the appropriate version for your operating system.
-   - Extract the downloaded archive and copy the `prometheus` binary to `monitoring/prometheus-3.4.1.linux-amd64/`.
-
-2. **Download Promtool:**
-   - The `promtool` binary is included in the same archive as Prometheus.
-   - Copy the `promtool` binary to `monitoring/prometheus-3.4.1.linux-amd64/`.
-
-Ensure both binaries are executable and located in the correct directory before starting the services.
