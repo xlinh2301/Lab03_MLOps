@@ -107,9 +107,10 @@ Vì các tệp nhị phân `prometheus` và `promtool` có kích thước lớn,
 
 2.  **Xây dựng và chạy các dịch vụ:**
     ```bash
-    docker-compose up -d --build
+    cd monitoring
+    docker-compose -f grafana-docker-compose.yml up -d --build
     ```
-    Lệnh này sẽ xây dựng hình ảnh Docker cho dịch vụ FastAPI và khởi động tất cả các dịch vụ được định nghĩa trong `docker-compose.yml` ở chế độ nền. Các dịch vụ bao gồm:
+    Lệnh này sẽ xây dựng hình ảnh Docker cho dịch vụ FastAPI và khởi động tất cả các dịch vụ được định nghĩa trong `grafana-docker-compose.yml` ở chế độ nền. Các dịch vụ bao gồm:
     *   **fastapi:** API phục vụ mô hình.
     *   **prometheus:** Máy chủ thu thập số liệu.
     *   **grafana:** Bảng điều khiển giám sát.
