@@ -1,8 +1,8 @@
 global:
   smtp_smarthost: 'smtp.gmail.com:587'
-  smtp_from: 'nickclonemail1@gmail.com'
-  smtp_auth_username: 'nickclonemail1@gmail.com'
-  smtp_auth_password: 'wsgj hmze dnzx jmqo'
+  smtp_from: 'youremail@gmail.com'
+  smtp_auth_username: 'youremail@gmail.com'
+  smtp_auth_password: 'your_password'
 route:
   receiver: 'email-notifications'
   routes:
@@ -13,7 +13,7 @@ route:
 receivers:
   - name: 'email-notifications'
     email_configs:
-      - to: 'supperkklot2001@gmail.com'
+      - to: 'youremail_recv@gmail.com'
         send_resolved: true
   - name: 'retrain-webhook'
     webhook_configs:
